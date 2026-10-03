@@ -16,6 +16,18 @@ async def lifespan(app: FastAPI):
     logger.info("Starting AI Knowledge Inbox API...")
     init_db()
     logger.info(f"Mock Mode: {settings.is_mock_mode} (Gemini API Key configured: {bool(settings.GEMINI_API_KEY)})")
+
+    # Auto-seed if database is empty (e.g. on fresh Render/Cloud deployment or first run)
+    try:
+        total_items, _ = ItemRepository.get_items(limit=1, offset=0)
+        if total_items == 0:
+            logger.info("Database is empty. Automatically seeding sample technical notes...")
+            import asyncio
+            from seed import seed_data
+            asyncio.create_task(seed_data())
+    except Exception as e:
+        logger.warning(f"Auto-seed check encountered non-fatal error: {e}")
+
     yield
     logger.info("Shutting down AI Knowledge Inbox API...")
 
