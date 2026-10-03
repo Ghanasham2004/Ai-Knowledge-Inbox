@@ -188,8 +188,8 @@ Test coverage includes:
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/Ghanasham2004/ai-knowledge-inbox.git
-cd ai-knowledge-inbox
+git clone https://github.com/Ghanasham2004/Ai-Knowledge-Inbox.git
+cd Ai-Knowledge-Inbox
 ```
 
 ---
