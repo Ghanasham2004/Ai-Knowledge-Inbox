@@ -4,6 +4,10 @@
 
 Built for the **Turium AI Full Stack Developer** assessment.
 
+- 🌐 **Live Web Application:** [https://ai-knowledge-inbox-mwp3.onrender.com/](https://ai-knowledge-inbox-mwp3.onrender.com/)
+- ⚡ **Interactive API Docs (Swagger):** [https://ai-knowledge-inbox-api-fgkg.onrender.com/docs](https://ai-knowledge-inbox-api-fgkg.onrender.com/docs)
+- 🩺 **Backend Health Endpoint:** [https://ai-knowledge-inbox-api-fgkg.onrender.com/api/health](https://ai-knowledge-inbox-api-fgkg.onrender.com/api/health)
+
 ---
 
 ## 🌟 Key Features
