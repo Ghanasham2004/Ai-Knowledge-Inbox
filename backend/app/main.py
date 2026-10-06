@@ -19,12 +19,12 @@ async def lifespan(app: FastAPI):
 
     # Auto-seed if database is empty (e.g. on fresh Render/Cloud deployment or first run)
     try:
-        total_items, _ = ItemRepository.get_items(limit=1, offset=0)
-        if total_items == 0:
+        items, total_count = ItemRepository.get_items(limit=1, offset=0)
+        if total_count == 0:
             logger.info("Database is empty. Automatically seeding sample technical notes...")
-            import asyncio
             from seed import seed_data
-            asyncio.create_task(seed_data())
+            await seed_data()
+            logger.info("Auto-seeding completed successfully!")
     except Exception as e:
         logger.warning(f"Auto-seed check encountered non-fatal error: {e}")
 
